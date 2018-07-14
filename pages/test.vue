@@ -1,3 +1,0 @@
-<template>
-    <h1 class="hello">Hello World</h1>
-</template>
