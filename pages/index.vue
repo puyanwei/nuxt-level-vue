@@ -4,7 +4,7 @@
       <v-card>
         <v-card-title class="headline">Movie Night</v-card-title>
         <v-card-text>
-          <p>Find and check out your favourite movies</p>
+          <p>Top 10 Movies</p>
           <div class="text-xs-right">
           </div>
           <hr class="my-3">
@@ -15,5 +15,25 @@
 </template>
 
 <script>
-export default {};
+import { apiKey } from '../utils/api-key';
+
+export default {
+    data() {
+        return {
+            apiKey: '',
+        };
+    },
+    mounted() {
+        this.getMovieData();
+    },
+    methods: {
+        getMovieData() {
+            // const url = `http://api.giphy.com/v1/gifs/search?q=random+${query}&api_key=${giffyAPI}&limit=50`;
+            // const response = await fetch(url);
+            // const giffyData = await response.json();
+            // return giffyId;
+            console.log(apiKey);
+        },
+    },
+};
 </script>

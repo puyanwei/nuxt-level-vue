@@ -12,3 +12,5 @@ dist
 
 # IDE
 .idea
+
+utils/api-key.js
