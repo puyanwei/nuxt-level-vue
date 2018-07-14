@@ -2,9 +2,63 @@
     <div class="movie-search">
         <h1>Movie Night</h1>
         <p>Find a Movie</p>
-        <v-text-field></v-text-field>
+        <v-text-field placeholder="Search Movies" v-model="userInput" ></v-text-field>
+        <div style="position:relative">
+            <ul class="dropdown-menu">
+                <li v-for="city in cities" :key="city.id">
+                    <a href="#" style="color:white">{{ city }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
+
+
 <script>
+import { apiKey } from '../utils/api-key';
+
+export default {
+    data() {
+        return {
+            userInput: '',
+            cities: [
+                'Bangalore',
+                'Chennai',
+                'Cochin',
+                'Delhi',
+                'Kolkata',
+                'Mumbai',
+            ],
+            openBox: false,
+        };
+    },
+    // computed: {
+    //     matches() {
+    //         return this.cities.filter((element) => {
+    //             if (element.includes('selection')) {
+    //                 return element;
+    //             }
+    //         });
+    //     },
+    // openSuggestionBox() {
+    //     return (
+    //         this.selection !== '' &&
+    //         this.matches.length != 0 &&
+    //         this.openBox === true
+    //     );
+    // },
+    // },
+    // methods: {
+    //     getMovieData(search) {
+    //         const url = `https://api.themoviedb.org/3/search/${search}?api_key=${apiKey}&language=en-US&page=1&include_adult=false`;
+    //         fetch(url)
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 console.log(data);
+    //             })
+    //             .catch((err) => console.log(err));
+    //     },
+    // },
+};
 </script>
