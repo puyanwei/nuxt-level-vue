@@ -6,7 +6,7 @@
         <v-card-text>
           <p>Top 20 Movies sorted by rating on The Movie Database</p>
           <ul>
-              <li>{{ films }}</li>
+              <li v-for="film in films" :key="film.id">{{ film.title }} - {{ film.rating }}</li>
           </ul>
           <hr class="my-3">
         </v-card-text>
