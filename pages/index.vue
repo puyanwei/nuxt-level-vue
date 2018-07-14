@@ -4,9 +4,9 @@
       <v-card>
         <v-card-title class="headline">Movie Night</v-card-title>
         <v-card-text>
-          <p>Top 10 Movies</p>
+          <p>Top 20 Movies sorted by rating on The Movie Database</p>
           <ul>
-              <li>{{ film }}</li>
+              <li>{{ films }}</li>
           </ul>
           <hr class="my-3">
         </v-card-text>
@@ -21,7 +21,7 @@ import { apiKey } from '../utils/api-key';
 export default {
     data() {
         return {
-            film: '',
+            films: [],
         };
     },
     mounted() {
@@ -29,10 +29,18 @@ export default {
     },
     methods: {
         getMovieData() {
-            const url = `https://api.themoviedb.org/3/movie/550?api_key=${apiKey}`;
+            const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
             fetch(url)
                 .then((response) => response.json())
-                .then((data) => (this.film = data.title))
+                .then((data) => {
+                    let obj = {};
+                    data.results.map((element) => {
+                        this.films.push({
+                            title: element.title,
+                            rating: element.vote_average,
+                        });
+                    });
+                })
                 .catch((err) => console.log(err));
         },
     },
