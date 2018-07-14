@@ -5,7 +5,7 @@
         <v-text-field placeholder="Search Movies" v-model="userInput" ></v-text-field>
         <div style="position:relative">
             <ul class="dropdown-menu">
-                <li v-for="film in films" :key="film.id">
+                <li v-for="film in suggestedFilms" :key="film.id">
                     <a href="#" style="color:white">{{ film }}</a>
                 </li>
             </ul>
@@ -33,14 +33,13 @@ export default {
             openBox: false,
         };
     },
-    // computed: {
-    //     matches() {
-    //         return this.films.filter((element) => {
-    //             if (element.includes('selection')) {
-    //                 return element;
-    //             }
-    //         });
-    //     },
+    computed: {
+        suggestedFilms() {
+            return this.films.filter((element) => {
+                return element.match(this.userInput);
+            });
+        },
+    },
     // openSuggestionBox() {
     //     return (
     //         this.selection !== '' &&
