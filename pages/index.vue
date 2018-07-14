@@ -5,8 +5,8 @@
         <v-text-field placeholder="Search Movies" v-model="userInput" ></v-text-field>
         <div style="position:relative">
             <ul class="dropdown-menu">
-                <li v-for="city in cities" :key="city.id">
-                    <a href="#" style="color:white">{{ city }}</a>
+                <li v-for="film in films" :key="film.id">
+                    <a href="#" style="color:white">{{ film }}</a>
                 </li>
             </ul>
         </div>
@@ -22,20 +22,20 @@ export default {
     data() {
         return {
             userInput: '',
-            cities: [
-                'Bangalore',
-                'Chennai',
-                'Cochin',
-                'Delhi',
-                'Kolkata',
-                'Mumbai',
+            films: [
+                'Fight Club',
+                'Pulp Fiction',
+                'Shawshank Redemption',
+                'Life of Pi',
+                'Ready Player One',
+                'Jurassic Park',
             ],
             openBox: false,
         };
     },
     // computed: {
     //     matches() {
-    //         return this.cities.filter((element) => {
+    //         return this.films.filter((element) => {
     //             if (element.includes('selection')) {
     //                 return element;
     //             }
