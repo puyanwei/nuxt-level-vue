@@ -36,7 +36,9 @@ export default {
     computed: {
         suggestedFilms() {
             return this.films.filter((element) => {
-                return element.match(this.userInput);
+                return element
+                    .toLowerCase()
+                    .match(this.userInput.toLowerCase());
             });
         },
     },
